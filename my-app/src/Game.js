@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
 
 const Square = (props) => {
-    const [value, setValue] = useState(null);
     return (
         <button
             className="square"
             onClick={() => props.onClick()}
         >
-            {value}
+            {props.value}
         </button>
     );
 }
 
 const Board = (props) => {
+
     const [squares, setSquares] = useState(Array(9).fill(null));
+    const [xIsNext, setXIsNext] = useState(true);
 
     const handleClick = (i) => {
         const ss = squares.slice();
-        ss[i] = 'X';
+        ss[i] = xIsNext ? 'X' : 'O';
         setSquares(ss);
+        setXIsNext(!xIsNext);
     }
 
     const renderSquare = (i) => {
         return <Square value={squares[i]} onClick={() => handleClick(i)} />;
     }
 
-    const status = 'Next player: X';
-
+    const status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    
     return (
         <div>
             <div className="status">{status}</div>
