@@ -1,15 +1,20 @@
+import React, { useState } from 'react';
 
-let Square = (props) => {
+const Square = (props) => {
+    const [value, setValue] = useState(null);
     return (
-        <button className="square">
-            {props.value}
+        <button
+            className="square"
+            onClick={() => setValue('X')}
+        >
+            {value}
         </button>
     );
 }
 
-let Board = () => {
+const Board = (props) => {
 
-    let renderSquare = (i) => {
+    const renderSquare = (i) => {
         return <Square value={i} />;
     }
 
@@ -37,7 +42,7 @@ let Board = () => {
     );
 }
 
-let Game = () => {
+const Game = (props) => {
     return (
         <div className="game">
             <div className="game-board">
