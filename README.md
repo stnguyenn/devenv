@@ -7,7 +7,7 @@ cd my-app
 npm start
 ```
 
-## Use Code Starter
+## [Use Code Starter](https://reactjs.org/tutorial/tutorial.html#inspecting-the-starter-code)
 ```js
 class Square extends React.Component {
   render() {
